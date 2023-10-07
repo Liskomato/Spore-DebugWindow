@@ -32,9 +32,6 @@ member_detour(cScenarioPlayMode_Initialize_detour, Simulator::cScenarioPlayMode,
 				text = debugWindow->FindWindowByID(id("TextDebug"));
 				text->SetLocation(10, 400);
 				text->SetVisible(DebugUpdater.visible);
-				if (DebugUpdater.keybind != nullptr) {
-					text->AddWinProc(DebugUpdater.keybind.get());
-				}
 			}
 		}
 
