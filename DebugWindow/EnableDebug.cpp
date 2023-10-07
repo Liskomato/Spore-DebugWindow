@@ -18,15 +18,16 @@ void EnableDebug::ParseLine(const ArgScript::Line& line)
 	// Put your cheat code here.
 
 	DebugUpdater.visible = !DebugUpdater.visible;
+	App::ConsolePrintF("Debug window status: %s",DebugUpdater.visible ? "Enabled" : "Disabled");
 
 }
 
 const char* EnableDebug::GetDescription(ArgScript::DescriptionMode mode) const
 {
 	if (mode == ArgScript::DescriptionMode::Basic) {
-		return "This cheat does something.";
+		return "Enables Debug Window.";
 	}
 	else {
-		return "EnableDebug: Elaborate description of what this cheat does.";
+		return "EnableDebug: Toggles the visibility of the debug window added with the Debug Window mod.";
 	}
 }

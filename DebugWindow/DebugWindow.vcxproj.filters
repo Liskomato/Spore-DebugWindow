@@ -19,6 +19,15 @@
     <ClInclude Include="stdafx.h">
       <Filter>Internal</Filter>
     </ClInclude>
+    <ClInclude Include="DebugUpdater.h">
+      <Filter>DebugWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="EnableDebug.h">
+      <Filter>DebugWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugWindowKeybind.h">
+      <Filter>DebugWindow</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -26,6 +35,15 @@
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>Internal</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugUpdater.cpp">
+      <Filter>DebugWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="EnableDebug.cpp">
+      <Filter>DebugWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugWindowKeybind.cpp">
+      <Filter>DebugWindow</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

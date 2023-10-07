@@ -46,6 +46,7 @@ bool DebugWindowKeybind::HandleUIMessage(IWindow* window, const Message& message
 {
 	if (message.IsType(kMsgKeyDown) && (message.Key.vkey == '§' || message.Key.vkey == '`') && message.Key.modifiers == kModifierAltDown) {
 		DebugUpdater.visible = !DebugUpdater.visible;
+		return true;
 	}
 	// Return true if the message was handled, and therefore no other window procedure should receive it.
 	return false;

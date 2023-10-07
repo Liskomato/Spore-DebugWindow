@@ -98,10 +98,30 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DebugUpdater.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="DebugWindowKeybind.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="EnableDebug.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DebugUpdater.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="DebugWindowKeybind.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="dllmain.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -109,6 +129,10 @@
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="EnableDebug.cpp">
+      <SubType>
+      </SubType>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
