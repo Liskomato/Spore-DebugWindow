@@ -1,0 +1,7 @@
+<mod displayName="Debug Window" unique="DebugWindow" description="Adds a window containing internal game information." installerSystemVersion="1.0.1.2" hasCustomInstaller="false" isExperimental="false" dllsBuild="2.5.280">
+<prerequisite game="GalacticAdventures">DebugWindow.package</prerequisite>
+<prerequisite>DebugWindow.dll</prerequisite>
+<remove game="GalacticAdventures">*DebugWindow*</remove>
+<remove game="Spore">*DebugWindow*</remove>
+<remove>DebugWindow.dll</remove>
+</mod>
