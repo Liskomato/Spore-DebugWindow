@@ -2,6 +2,8 @@
 #include "DebugUpdater.h"
 #include "DebugWindowKeybind.h"
 
+cDebugUpdater* cDebugUpdater::ptr = nullptr;
+
 cDebugUpdater::cDebugUpdater()
 {
 	visible = false;
