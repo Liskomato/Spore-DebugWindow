@@ -44,7 +44,7 @@ int DebugWindowKeybind::GetEventFlags() const
 // checking what kind of message was sent...
 bool DebugWindowKeybind::HandleUIMessage(IWindow* window, const Message& message)
 {
-	if (message.IsType(kMsgKeyDown) && (message.Key.vkey == '§' || message.Key.vkey == '`') && message.Key.modifiers == kModifierAltDown) {
+	if (message.IsType(kMsgKeyDown) && (message.Key.vkey == 'd' || message.Key.vkey == 'D') && message.Key.modifiers == kModifierAltDown) {
 		DebugUpdater.visible = !DebugUpdater.visible;
 		return true;
 	}

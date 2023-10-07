@@ -24,6 +24,7 @@ member_detour(cScenarioPlayMode_Initialize_detour, Simulator::cScenarioPlayMode,
 	{
 		// We want the original function to run first, so we can do our things afterwards.
 		original_function(this);
+		debugWindow = new UILayout();
 		// Debug text layout
 		IWindowPtr text;
 		if (debugWindow->LoadByName(u"TimerDebug")) {
@@ -32,6 +33,8 @@ member_detour(cScenarioPlayMode_Initialize_detour, Simulator::cScenarioPlayMode,
 				text = debugWindow->FindWindowByID(id("TextDebug"));
 				text->SetLocation(10, 400);
 				text->SetVisible(DebugUpdater.visible);
+
+				WindowManager.GetMainWindow()->AddWinProc(DebugUpdater.keybind.get());
 			}
 		}
 

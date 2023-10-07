@@ -8,24 +8,18 @@ cDebugUpdater::cDebugUpdater()
 {
 	visible = false;
 	keybind = new DebugWindowKeybind();
-	WindowManager.GetMainWindow()->AddWinProc(keybind.get());
 }
 
 
 cDebugUpdater::~cDebugUpdater()
 {
-	WindowManager.GetMainWindow()->RemoveWinProc(keybind.get());
-	keybind = nullptr;
 }
 
 cDebugUpdater* cDebugUpdater::Get() {
 	if (ptr == nullptr) {
 		ptr = new cDebugUpdater();
-		return ptr;
 	}
-	else {
-		return ptr;
-	}
+	return ptr;
 }
 
 void cDebugUpdater::Initialize() {
@@ -44,6 +38,8 @@ void cDebugUpdater::Update() {
 }
 
 void cDebugUpdater::Dispose() {
+	WindowManager.GetMainWindow()->RemoveWinProc(keybind.get());
+	keybind = nullptr;
 	ptr = nullptr;
 }
 
