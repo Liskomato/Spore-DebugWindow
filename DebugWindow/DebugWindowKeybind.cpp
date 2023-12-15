@@ -48,6 +48,10 @@ bool DebugWindowKeybind::HandleUIMessage(IWindow* window, const Message& message
 		DebugUpdater.visible = !DebugUpdater.visible;
 		return true;
 	}
+	else if (message.IsType(kMsgKeyDown) && (message.Key.vkey == 'x' || message.Key.vkey == 'X') && message.Key.modifiers == kModifierAltDown) {
+		DebugUpdater.hexDisplay = !DebugUpdater.hexDisplay;
+		return true;
+	}
 	// Return true if the message was handled, and therefore no other window procedure should receive it.
 	return false;
 }

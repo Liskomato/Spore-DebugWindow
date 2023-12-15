@@ -18,12 +18,12 @@ void Initialize()
 	CheatManager.AddCheat("debugwindow",new EnableDebug());
 }
 
-member_detour(cScenarioPlayMode_Initialize_detour, Simulator::cScenarioPlayMode, void(void)) {
+member_detour(cScenarioData_Initialize_detour, Simulator::cScenarioData, void(bool)) {
 
-	void detoured()
+	void detoured(bool b)
 	{
 		// We want the original function to run first, so we can do our things afterwards.
-		original_function(this);
+		original_function(this,b);
 		debugWindow = new UILayout();
 		// Debug text layout
 		IWindowPtr text;
@@ -31,7 +31,7 @@ member_detour(cScenarioPlayMode_Initialize_detour, Simulator::cScenarioPlayMode,
 			debugWindow->SetParentWindow(WindowManager.GetMainWindow());
 			if (debugWindow->FindWindowByID(id("TextDebug")) != nullptr) {
 				text = debugWindow->FindWindowByID(id("TextDebug"));
-				text->SetLocation(10, 400);
+				text->SetLocation(400, 400);
 				text->SetVisible(DebugUpdater.visible);
 
 				WindowManager.GetMainWindow()->AddWinProc(DebugUpdater.keybind.get());
@@ -42,6 +42,8 @@ member_detour(cScenarioPlayMode_Initialize_detour, Simulator::cScenarioPlayMode,
 	}
 
 };
+
+
 
 void Dispose()
 {
@@ -54,7 +56,7 @@ void AttachDetours()
 {
 	// Call the attach() method on any detours you want to add
 	// For example: cViewer_SetRenderType_detour::attach(GetAddress(cViewer, SetRenderType));
-	cScenarioPlayMode_Initialize_detour::attach(GetAddress(Simulator::cScenarioPlayMode, Initialize));
+	cScenarioData_Initialize_detour::attach(GetAddress(Simulator::cScenarioData, Initialize));
 }
 
 

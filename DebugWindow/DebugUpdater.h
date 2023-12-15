@@ -19,11 +19,13 @@ public:
 	void Dispose();
 
 	bool visible;
+	bool hexDisplay;
 	DebugWindowKeybindPtr keybind;
 	
 	~cDebugUpdater();
 
 	void ScenarioPlayModeUpdate();
+	void ScenarioEditModeUpdate();
 	
 	int AddRef() override;
 	int Release() override;
