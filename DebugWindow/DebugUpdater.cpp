@@ -143,7 +143,7 @@ void cDebugUpdater::ScenarioEditModeUpdate() {
 				data_f11C = data->field_11C,
 				data_f120 = data->field_120;
 
-			debug2.append_sprintf(u"BOOLS\nmHasLoaded: %s\nmHadMissingAssets: %s\nmGenreHasChanged: %s\nmMetadataHasChanged: %s\nfield_1C: %s\nfield_2C: %s\n",data->mHasLoaded ? "true" : "false",data->mHadMissingAssets ? "true" : "false",data->mGenreHasChanged ? "true" : "false",data->mMetadataHasChanged ? "true" : "false",data->field_1C ? "true" : "false",data->field_2C ? "true" : "false");
+			debug2.append_sprintf(u"BOOLS\nmHasLoaded: %s\nmHadMissingAssets: %s\nmGenreHasChanged: %s\nmMetadataHasChanged: %s\nfield_1C: %s\nfield_2C: %s\n",data->mHasLoaded ? u"true" : u"false",data->mHadMissingAssets ? u"true" : u"false",data->mGenreHasChanged ? u"true" : u"false",data->mMetadataHasChanged ? u"true" : u"false",data->field_1C ? u"true" : u"false",data->field_2C ? u"true" : u"false");
 			if (hexDisplay) {
 				debug2.append_sprintf(u"INTEGERS\nfield_18: %#010x\nfield_20: %#010x\nfield_24: %#010x\nfield_28: %#010x\nfield_30: %#010x\nfield_34: %#010x\nfield_40: %#010x\nfield_44: %#010x\nfield_48: %#010x\nfield_88: %#010x\nfield_E8: %#010x\nfield_EC: %#010x\nfield_F0: %#010x\nfield_F4: %#010x\nfield_F8: %#010x\nfield_FC: %#010x\nfield_100: %#010x\nfield_104: %#010x\nfield_108: %#010x\nfield_10C: %#010x\nfield_110: %#010x\nfield_114: %#010x\nfield_118: %#010x\nfield_11C: %#010x\nfield_120: %#010x", data_f18, data_f20, data_f24, data_f28, data_f30, data_f34, data_f40, data_f44, data_f48, data_f80, data_f88, data_fE8, data_fEC, data_fF0, data_fF4, data_fF8, data_fFC, data_f100, data_f104, data_f108, data_f10C, data_f110, data_f114, data_f118, data_f11C, data_f120);
 			}
