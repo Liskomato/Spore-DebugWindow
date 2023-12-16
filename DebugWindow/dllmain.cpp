@@ -3,7 +3,7 @@
 #include "EnableDebug.h"
 #include "DebugUpdater.h"
 
-UILayoutPtr debugWindow = nullptr;
+UILayoutPtr debugWindow = nullptr, debugWindow2 = nullptr;
 
 void Initialize()
 {
@@ -16,6 +16,7 @@ void Initialize()
 	//  - Change materials
 	DebugUpdater.Initialize();
 	CheatManager.AddCheat("debugwindow",new EnableDebug());
+	WindowManager.GetMainWindow()->AddWinProc(DebugUpdater.keybind.get());
 }
 
 member_detour(cScenarioData_Initialize_detour, Simulator::cScenarioData, void(bool)) {
@@ -25,20 +26,29 @@ member_detour(cScenarioData_Initialize_detour, Simulator::cScenarioData, void(bo
 		// We want the original function to run first, so we can do our things afterwards.
 		original_function(this,b);
 		debugWindow = new UILayout();
+		debugWindow2 = new UILayout();
 		// Debug text layout
 		IWindowPtr text;
 		if (debugWindow->LoadByName(u"TimerDebug")) {
 			debugWindow->SetParentWindow(WindowManager.GetMainWindow());
 			if (debugWindow->FindWindowByID(id("TextDebug")) != nullptr) {
 				text = debugWindow->FindWindowByID(id("TextDebug"));
-				text->SetLocation(400, 400);
+				text->SetLocation(10, 400);
 				text->SetVisible(DebugUpdater.visible);
-
-				WindowManager.GetMainWindow()->AddWinProc(DebugUpdater.keybind.get());
+				text->SetControlID(id("playModeDebug"));
+				
 			}
 		}
+		if (debugWindow2->LoadByName(u"TimerDebug")) {
+			debugWindow2->SetParentWindow(WindowManager.GetMainWindow());
+			if (debugWindow2->FindWindowByID(id("TextDebug")) != nullptr) {
+				text = debugWindow2->FindWindowByID(id("TextDebug"));
+				text->SetLocation(400, 400);
+				text->SetVisible(DebugUpdater.visible);
+				text->SetControlID(id("dataDebug"));
 
-
+			}
+		}
 	}
 
 };
@@ -48,7 +58,7 @@ member_detour(cScenarioData_Initialize_detour, Simulator::cScenarioData, void(bo
 void Dispose()
 {
 	DebugUpdater.Dispose();
-	debugWindow = nullptr;
+	debugWindow = nullptr, debugWindow2 = nullptr;
 	// This method is called when the game is closing
 }
 

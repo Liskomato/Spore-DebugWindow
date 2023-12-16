@@ -25,7 +25,7 @@ public:
 	~cDebugUpdater();
 
 	void ScenarioPlayModeUpdate();
-	void ScenarioEditModeUpdate();
+	void ScenarioDataUpdate();
 	
 	int AddRef() override;
 	int Release() override;

@@ -32,13 +32,17 @@ void cDebugUpdater::Update() {
 		if (ScenarioMode.GetMode() == App::cScenarioMode::Mode::PlayMode) {
 			ScenarioPlayModeUpdate();
 		}
-		else if (ScenarioMode.GetMode() == App::cScenarioMode::Mode::EditMode) {
-			ScenarioEditModeUpdate();
+		else if (WindowManager.GetMainWindow()->FindWindowByID(id("playModeDebug")) != nullptr) {
+			WindowManager.GetMainWindow()->FindWindowByID(id("playModeDebug"))->SetVisible(false);
 		}
+			ScenarioDataUpdate();
 	}
 	else {
-		if (WindowManager.GetMainWindow()->FindWindowByID(id("TextDebug")) != nullptr) {
-			WindowManager.GetMainWindow()->RemoveWindow(WindowManager.GetMainWindow()->FindWindowByID(id("TextDebug")));
+		if (WindowManager.GetMainWindow()->FindWindowByID(id("playModeDebug")) != nullptr) {
+			WindowManager.GetMainWindow()->RemoveWindow(WindowManager.GetMainWindow()->FindWindowByID(id("playModeDebug")));
+		}
+		if (WindowManager.GetMainWindow()->FindWindowByID(id("dataDebug")) != nullptr) {
+			WindowManager.GetMainWindow()->RemoveWindow(WindowManager.GetMainWindow()->FindWindowByID(id("dataDebug")));
 		}
 	}
 }
@@ -50,10 +54,10 @@ void cDebugUpdater::Dispose() {
 }
 
 void cDebugUpdater::ScenarioPlayModeUpdate() {
-	if (WindowManager.GetMainWindow()->FindWindowByID(id("TextDebug")) != nullptr)
+	if (WindowManager.GetMainWindow()->FindWindowByID(id("playModeDebug")) != nullptr)
 	{
 
-		IWindowPtr debug = WindowManager.GetMainWindow()->FindWindowByID(id("TextDebug"));
+		IWindowPtr debug = WindowManager.GetMainWindow()->FindWindowByID(id("playModeDebug"));
 		debug->SetVisible(visible);
 		if (debug->IsVisible())
 		{
@@ -104,11 +108,11 @@ void cDebugUpdater::ScenarioPlayModeUpdate() {
 	}
 }
 
-void cDebugUpdater::ScenarioEditModeUpdate() {
-	if (WindowManager.GetMainWindow()->FindWindowByID(id("TextDebug")) != nullptr)
+void cDebugUpdater::ScenarioDataUpdate() {
+	if (WindowManager.GetMainWindow()->FindWindowByID(id("dataDebug")) != nullptr)
 	{
 
-		IWindowPtr debug = WindowManager.GetMainWindow()->FindWindowByID(id("TextDebug"));
+		IWindowPtr debug = WindowManager.GetMainWindow()->FindWindowByID(id("dataDebug"));
 		debug->SetVisible(visible);
 		if (debug->IsVisible())
 		{
